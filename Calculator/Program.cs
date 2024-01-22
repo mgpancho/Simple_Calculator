@@ -6,46 +6,80 @@
         {
             // My title in C# console app
             Console.WriteLine("------------------------------------------");
-            Console.WriteLine("   Welcome to Upskill C-Sharp Calculator  ");
+            Console.WriteLine("|  Welcome to Upskill C-Sharp Calculator |");
             Console.WriteLine("------------------------------------------");
 
             // Declare variables
-            int num1 = 0;
-            int num2 = 0;
+            double operand1 = 0;
+            double operand2 = 0;
 
-            //  Input the first number and second number.
-            string p = "press enter";
+            string runCalculator = "";
 
-            Console.WriteLine($"Enter the first number, and then {p}.");
-            num1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine($"Enter the second number, and then {p}.");
-            num2 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Choose an option from the following list of mathematical operations below:");
-            Console.WriteLine("\tEnter sign '+' => Addition");
-            Console.WriteLine("\tEnter sign '-' => Subtract");
-            Console.WriteLine("\tEnter sign '*' => Multiplication");
-            Console.WriteLine("\tEnter sign '/' => Division");
-            Console.Write($"Choose mathematical operation then {p}? ");
-
-            switch (Console.ReadLine())
+            // Start a do-while loop for the calculator to run repeatedly
+            do
             {
-                case "+":
-                    Console.WriteLine("Result : " + (num1 + num2));
-                    break;
-                case "-":
-                    Console.WriteLine("Result : " + (num1 - num2));
-                    break;
-                case "*":
-                    Console.WriteLine("Result : " + (num1 * num2));
-                    break;
-                case "/":
-                    Console.WriteLine("Result : " + (num1 / num2));
-                    break;
-                default: Console.WriteLine("Invalid operation");
-                  break;
-            }
+
+                // Added declaration for invalid for non-numeric input
+                int invalidInput = 0;
+
+                // Use a while loop for input validation (accept only numeric input)
+                while (invalidInput == 0)
+                    try
+                    {
+                        Console.Write("Enter the first number: ");
+                        operand1 = Convert.ToDouble(Console.ReadLine());
+                       
+                        Console.Write("Enter the second number: ");
+                        operand2 = Convert.ToDouble(Console.ReadLine());
+                        invalidInput = 1;
+                        
+                    }
+                    catch
+                    {
+                        invalidInput = 0;
+                        Console.WriteLine("Invalid input!");
+                    }
+
+                // Display available arithmetic operations
+                Console.WriteLine("Choose an option from the following arithmetic  operations below:");
+                Console.WriteLine("\t1 - Addition");
+                Console.WriteLine("\t2 - Subtraction");
+                Console.WriteLine("\t3 - Multiplication");
+                Console.WriteLine("\t4 - Division");
+                Console.Write("Choose the operation number (1-4): ");
+
+                // Use a switch statement to perform the selected arithmetic operation
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        Console.WriteLine("Result of Addition: " + (operand1 + operand2));
+                        break;
+                    case "2":
+                        Console.WriteLine("Result of Subtraction: " + (operand1 - operand2));
+                        break;
+                    case "3":
+                        Console.WriteLine("Result of Multiplication: " + (operand1 * operand2));
+                        break;
+                    case "4":
+                        while (operand2 == 0)
+                        {
+                            Console.WriteLine("Invalid! Please enter a non-zero divisor.");
+                            Console.Write("Enter the second number: ");
+                            operand2 = Convert.ToDouble(Console.ReadLine());
+
+                        }
+                        Console.WriteLine("Result of Division: " + (operand1 / operand2));
+                        break;
+                    default:
+                        Console.WriteLine("Invalid arithmetic operation.");
+                        break;
+                }
+
+                // Prompt the user to continue or exit
+                Console.Write("Enter 'y' to continue, press 'Enter' twice to exit.: ");                        
+                runCalculator = Console.ReadLine();
+
+            } while (runCalculator == "y" || runCalculator == "Y");
         }
     }
 }

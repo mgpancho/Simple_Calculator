@@ -12,3 +12,4 @@ C:\Users\BFI\Desktop\Calculator\Calculator\obj\Debug\net8.0\refint\Calculator.dl
 C:\Users\BFI\Desktop\Calculator\Calculator\obj\Debug\net8.0\Calculator.pdb
 C:\Users\BFI\Desktop\Calculator\Calculator\obj\Debug\net8.0\Calculator.genruntimeconfig.cache
 C:\Users\BFI\Desktop\Calculator\Calculator\obj\Debug\net8.0\ref\Calculator.dll
+C:\Users\BFI\Desktop\Calculator\Calculator\obj\Debug\net8.0\Calculator.sourcelink.json
