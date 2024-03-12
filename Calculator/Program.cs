@@ -24,6 +24,7 @@
 
                 // Use a while loop for input validation (accept only numeric input)
                 while (invalidInput == 0)
+                {
                     try
                     {
                         Console.Write("Enter the first number: ");
@@ -39,6 +40,7 @@
                         invalidInput = 0;
                         Console.WriteLine("Invalid input!");
                     }
+                }
 
                 // Display available arithmetic operations
                 Console.WriteLine("Choose an option from the following arithmetic  operations below:");
